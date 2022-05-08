@@ -2,5 +2,5 @@
 # age = int("23")
 name = input("Enter your name: ")
 age = int(input("What's your age?: "))
-year = str(2021 + (100 - age))
+year = str(2022 + (100 - age))
 print(name + " will be hundred years old in " + year)
