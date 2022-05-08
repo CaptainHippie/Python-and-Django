@@ -1,0 +1,12 @@
+name = input("Enter your name:")
+filename = str("Data//"+name+".txt")
+file = open(filename, 'a')
+file.write("Name : "+ name)
+
+age = input("Enter your age:")
+file.write("\nAge : "+ age)
+email = input("Enter your email address:")
+file.write("\nEmail address : "+ email)
+home = input("Enter your hometown:")
+file.write("\nHometown : "+ home)
+file.close()
