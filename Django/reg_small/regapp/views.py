@@ -13,6 +13,9 @@ def UserRegistration(request):
             saverecord.passwd = request.POST.get("passwdbox")
             saverecord.save()
             messages.success(request,"New user registration details saved successfully!")
-            return render(request,"index.html")
+            return render(request,"register.html")
     else:
-        return render(request,"index.html")
+        return render(request,"register.html")
+
+def UserLogin(request):
+    return render(request,"login.html")
