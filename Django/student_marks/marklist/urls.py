@@ -8,5 +8,6 @@ urlpatterns = [
     path('edit/<int:id>', views.markedit, name="edit"),
     path('delete/<int:id>', views.delete, name="del"),
     path('update/<int:id>', views.update, name="update"),
-    path('view_student/',views.view_student, name="view_single")
+    path('view_student/',views.view_student, name="view_single"),
+    path('index/',views.indexpage, name="main")
 ]
