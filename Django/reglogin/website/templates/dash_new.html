@@ -32,8 +32,9 @@
 
                 <form method="POST">
                 {% csrf_token %}
-                <input type="submit" name="logout" class="btn mt-4" value="SIGN OUT"><br>
-                </form>
+                <input type="submit" name="logout" class="btn mt-4" value="SIGN OUT"><br></form>
+                <a href="{% url 'edit' %}"><button class="btn mt-4">EDIT</button></a>
+                
 			</div>
 			</div>
 		</div>

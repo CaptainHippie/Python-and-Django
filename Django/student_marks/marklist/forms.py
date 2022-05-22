@@ -4,5 +4,5 @@ from marklist.models import Student
 class stform(ModelForm):
     class Meta:
         model = Student
-        fields =('roll_no','name','mark1','mark2','mark3','total_mark','avg_mark')
+        fields =('roll_no','name','mark1','mark2','mark3','mark4')
         #fields="__all__"

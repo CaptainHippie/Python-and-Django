@@ -18,7 +18,7 @@
 </head>
 <body 
 {% load static %}
-style="background-image:url({% static 'images/background.jpg' %});
+style="background-image:url({% static 'images/education.png' %});
     background-size:cover">
 
 <div id="booking" class="section">
@@ -33,13 +33,13 @@ style="background-image:url({% static 'images/background.jpg' %});
 				<div class="col-md-6">
 				<div class="form-group">
 					<span class="form-label">Roll Number</span>
-					<input class="form-control" type="number" name="rnum" placeholder="student roll no">
+					<input class="form-control" type="number" name="rnum" placeholder="student roll no" required>
 				</div>
 				</div>
 				<div class="col-md-6">
 				<div class="form-group">
 					<span class="form-label">Name</span>
-					<input class="form-control" type="text" name="std" placeholder="student name">
+					<input class="form-control" type="text" name="std" placeholder="student name" required>
 				</div>
 				</div>
 			</div><br>
@@ -48,29 +48,28 @@ style="background-image:url({% static 'images/background.jpg' %});
 				<div class="col-md-3">
 				<div class="form-group">
 					<span class="form-label">Physics</span>
-					<input class="form-control" type="number" name="m1" min="1">
+					<input class="form-control" type="number" name="m1" min="1" required>
 				</div>
 				</div>
 				<div class="col-md-3">
 				<div class="form-group">
 					<span class="form-label">Maths</span>
-					<input class="form-control" type="number" name="m2">
+					<input class="form-control" type="number" name="m2" required>
 				</div>
 				</div>
 				<div class="col-md-3">
 				<div class="form-group">
 					<span class="form-label">English</span>
-					<input class="form-control" type="number" name="m3">
+					<input class="form-control" type="number" name="m3" required>
 				</div>
 				</div>
 				<div class="col-md-3">
 				<div class="form-group">
 					<span class="form-label">Chemistry</span>
-					<input class="form-control" type="number" name="m4">
+					<input class="form-control" type="number" name="m4" required>
 				</div>
 				</div>
 			</div>
-			<div class="btnrow">
 				<div class="col-md-3">
 				<div class="form-btn">
 					<input type="submit" name="add" class="submit-btn" value="SUBMIT">
@@ -84,15 +83,14 @@ style="background-image:url({% static 'images/background.jpg' %});
 				</div>
 				<div class="col-md-3">
 				<div class="form-btn">
-					<a href={% url 'view_single' %}><button class="normal-btn">SEARCH</button></a>
+					<a href={% url 'search' %}><button class="normal-btn">SEARCH</button></a>
 				</div>
 				</div>
-			</div>
-			{% if messages %}
-				{% for result in messages %}
-					<span class="form-label">{{result}}</span>
-				{% endfor %}
-			{% endif %}<br><br>
+				{% if messages %}
+					{% for result in messages %}
+						<span class="success_msg">{{result}}</span>
+					{% endfor %}
+				{% endif %}
 			</div>
 		</div>
 	</div>

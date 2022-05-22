@@ -40,3 +40,51 @@ def logout(request):
         return render(request,'loginreg.html')
     return render(request,'dash_new.html')
 
+def edit(request):
+    login_user = request.session['logged_user']
+    user_obj = user.objects.get(username=login_user)
+    return render(request,'edit_user.html', {"userdata": user_obj})
+
+def update(request):
+    login_user = request.session['logged_user']
+    user_obj = user.objects.get(username=login_user)
+    if request.method == 'POST':
+        nm = request.POST['namebox']
+        em = request.POST['emailbox']
+        un = request.POST['unamebox']
+        user(name=nm,email=em,username=un).save()
+        cpas = request.POST['cur_passbox']
+        npas = request.POST['new_passbox']
+        cfpas = request.POST['re_passbox']
+        if request.POST['cur_passbox']:
+            print("BUAAAAA")
+        messages.success(request,"The Student Record is updated succesfully....")
+        return render(request, 'edit_user.html')
+    else:
+        return render(request, 'edit_user.html')
+
+
+
+
+
+#################     Insertion  ##################
+'''
+
+########## Edit ##############
+def stedit(request, sid):
+    edit = user()
+    getstudata = user.objects.get(sid=sid)
+    return render(request, 'edit.html', {"Stud": getstudata})
+
+
+##############################
+def stupdate(request, sid):
+    stupdate = user.objects.get(sid=sid)
+    form = stform(request.POST, instance=stupdate)
+    if form.is_valid():
+        form.save()
+        messages.success(request,"The Student Record is updated succesfully....")
+        return render(request, 'edit.html', {"Stud": stupdate})
+    else:
+        return render(request, 'edit.html')'''
+
