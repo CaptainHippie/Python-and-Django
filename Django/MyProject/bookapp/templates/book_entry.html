@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Add Books</title>
+
+	<!-- Google font -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400">
+	{% load static %}
+	<!-- Bootstrap -->
+    <link rel="stylesheet" href="{% static "stylesheets/bootstrap.min2.css" %}">
+	<!-- Custom stlylesheet -->
+    <link rel="stylesheet" href="{% static "stylesheets/style2.css" %}">
+
+</head>
+<body 
+{% load static %}
+style="background-image:url({% static 'images/education.png' %});
+    background-size:cover">
+
+<div id="booking" class="section">
+<div class="section-center">
+	<div class="container">
+		<div class="row">
+			<div class="booking-form" style="height:620px">
+				<span class="heading">LIBRARY ADMIN</span><br><br>
+				<span class="marks">ADD BOOK</span><br>
+			<form method="POST">
+				{% csrf_token %}
+			<div class="row">
+				<div class="col-md-6">
+				<div class="form-group">
+					<span class="form-label">Reference Id</span>
+					<input class="form-control" type="number" name="acc" placeholder="reference number" required>
+				</div>
+				</div>
+				<div class="col-md-6">
+				<div class="form-group">
+					<span class="form-label">Author</span>
+					<input class="form-control" type="text" name="author" placeholder="enter author name" required>
+				</div>
+				</div>
+			</div><br>
+			<div class="row">
+				<div class="col-md-12">
+				<div class="form-group">
+					<span class="form-label">Book Title</span>
+					<input class="form-control" type="text" name="title" placeholder="enter book title" required>
+				</div>
+				</div>
+			</div>
+				<div class="col-md-3">
+				<div class="form-btn">
+					<input type="submit" name="add" class="submit-btn" value="SUBMIT">
+				</div>
+				</div>
+			</form>
+				<div class="col-md-3">
+				<div class="form-btn">
+					<a href={% url 'view_book' %}><button class="normal-btn">VIEW ALL</button></a>
+				</div>
+				</div>
+				<div class="col-md-3">
+				<div class="form-btn">
+					<a href={% url 'search_book' %}><button class="normal-btn">SEARCH</button></a>
+				</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+					<div class="form-btn">
+						<a href={% url 'home' %}>
+						<button style="margin-left:170px" class="normal-btn">HOMEPAGE</button></a>
+					</div>
+					</div>
+				</div>
+				{% if messages %}
+					{% for result in messages %}
+						<span class="success_msg" style="margin-top:20px">{{result}}</span>
+					{% endfor %}
+				{% endif %}<br>
+			</div>
+			
+		</div>
+	</div>
+</div>
+</div>
+</body>
+</html>

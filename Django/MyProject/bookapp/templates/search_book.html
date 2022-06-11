@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Mark submission</title>
+
+	<!-- Google font -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400">
+	{% load static %}
+	<!-- Bootstrap -->
+    <link rel="stylesheet" href="{% static "stylesheets/bootstrap.min2.css" %}">
+	<!-- Custom stlylesheet -->
+    <link rel="stylesheet" href="{% static "stylesheets/style4.css" %}">
+
+</head>
+<body 
+{% load static %}
+style="background-image:url({% static 'images/education.png' %});
+    background-size:cover">
+
+<div id="booking" class="section">
+<div class="section-center">
+	<div class="container">
+	<div class="row">
+	<div class="booking-form">
+		<span class="heading">SEARCH LIBRARY</span><br>
+		<form method="POST">
+		{% csrf_token %}
+			<div class="col-md-6">
+			<div class="form-group">
+				<span class="form-label">Book Title</span>
+				<input class="form-control" type="text" name="title" placeholder="title of the book" required>
+			</div>
+			</div>
+			<div class="col-md-3">
+			<div class="form-btn">
+				<input type="submit" name="search" class="search-btn" value="SEARCH">
+			</div>
+			</div>
+		</form>
+		<div class="col-md-3">
+		<div class="form-btn">
+			<a href={% url 'add_book' %}><button class="back-btn">BACK</button></a>
+		</div>
+		</div><br><br><br><br><br><br>
+		{% if cur_book %}
+		<div class="leftside">
+			<span class="form-label"> Reference ID </span>
+			<span class="form-label"> Author </span>
+			<span class="form-label"> Title </span>
+		</div>
+		<div class="dots">
+			{% for item in "x"|ljust:"3" %}
+			<span class="form-label"> : </span>
+			{% endfor%}
+		</div>
+		<div class="rightside">
+			<span class="form-label"> {{cur_book.acc_no}} </span>
+			<span class="form-label"> {{cur_book.author}} </span>
+			<span class="form-label"> {{cur_book.title}} </span>
+		</div>
+		{% endif %}
+	</div>
+	</div>
+	</div>
+</div>
+</div>
+</body>
+</html>

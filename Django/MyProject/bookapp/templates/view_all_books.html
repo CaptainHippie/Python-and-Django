@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+	<!-- Google font -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400">
+
+  {% load static %}
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{% static "stylesheets/bootstrap_table.css" %}">
+  <!-- Style -->
+  <link rel="stylesheet" href="{% static "stylesheets/style3.css" %}">
+  <title>All Books</title>
+</head>
+<body {% load static %}
+  style="background-image:url({% static 'images/education.png' %});background-size:cover">
+<div class="content"> 
+  <center>
+  <div class="container">
+    <div class="heading">Available Books<a href={% url 'add_book' %}>
+      <button class="normal-btn">BACK</button></a></div><br>
+    <div class="table-responsive custom-table-responsive">
+    <table class="table custom-table" style="text-align:center">
+    <thead style="background-color: rgba(0, 0, 0, 0.7)"><tr>  
+      <th scope="col" style="width:13%">Reference ID</th>
+      <th scope="col"> Author</th>
+      <th scope="col"> Title</th><th style="width:10%"></th><th style="width:10%"></th>
+    </tr></thead>
+    <tbody>
+    {% for displayst in Books %}
+    <tr scope="row">
+      <td>{{displayst.acc_no}}</td>
+      <td>{{displayst.author}}</td>
+      <td>{{displayst.title}}</td>
+      <td><a href="/Edit/{{displayst.id}}">Edit</a></td>
+      <td><a href="/Delete/{{displayst.id}}" onclick="return confirm('Are you sure want to delete ?')">Delete</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    </div>
+  </div>
+</center>
+</div>
+</body>
+</html>

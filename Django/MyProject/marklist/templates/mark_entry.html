@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Mark submission</title>
+
+	<!-- Google font -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400">
+	{% load static %}
+	<!-- Bootstrap -->
+    <link rel="stylesheet" href="{% static "stylesheets/bootstrap.min2.css" %}">
+	<!-- Custom stlylesheet -->
+    <link rel="stylesheet" href="{% static "stylesheets/style2.css" %}">
+
+</head>
+<body 
+{% load static %}
+style="background-image:url({% static 'images/education.png' %});
+    background-size:cover">
+
+<div id="booking" class="section">
+<div class="section-center">
+	<div class="container">
+		<div class="row">
+			<div class="booking-form" style="height:610px">
+				<span class="heading">STUDENT MARKLIST</span><br>
+			<form method="POST">
+				{% csrf_token %}
+			<div class="row">
+				<div class="col-md-6">
+				<div class="form-group">
+					<span class="form-label">Roll Number</span>
+					<input class="form-control" type="number" name="rnum" placeholder="student roll no" required>
+				</div>
+				</div>
+				<div class="col-md-6">
+				<div class="form-group">
+					<span class="form-label">Name</span>
+					<input class="form-control" type="text" name="std" placeholder="student name" required>
+				</div>
+				</div>
+			</div><br>
+			<span class="marks">Marks obtained</span><br>
+			<div class="row">
+				<div class="col-md-3">
+				<div class="form-group">
+					<span class="form-label">Physics</span>
+					<input class="form-control" type="number" name="m1" min="1" required>
+				</div>
+				</div>
+				<div class="col-md-3">
+				<div class="form-group">
+					<span class="form-label">Maths</span>
+					<input class="form-control" type="number" name="m2" required>
+				</div>
+				</div>
+				<div class="col-md-3">
+				<div class="form-group">
+					<span class="form-label">English</span>
+					<input class="form-control" type="number" name="m3" required>
+				</div>
+				</div>
+				<div class="col-md-3">
+				<div class="form-group">
+					<span class="form-label">Chemistry</span>
+					<input class="form-control" type="number" name="m4" required>
+				</div>
+				</div>
+			</div>
+				<div class="col-md-3">
+				<div class="form-btn">
+					<input type="submit" name="add" class="submit-btn" value="SUBMIT">
+				</div>
+				</div>
+			</form>
+				<div class="col-md-3">
+				<div class="form-btn">
+					<a href={% url 'view' %}><button class="normal-btn">VIEW ALL</button></a>
+				</div>
+				</div>
+				<div class="col-md-3">
+				<div class="form-btn">
+					<a href={% url 'search' %}><button class="normal-btn">SEARCH</button></a>
+				</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+					<div class="form-btn">
+						<a href={% url 'home' %}>
+						<button style="margin-left:170px" class="normal-btn">HOMEPAGE</button></a>
+					</div>
+					</div>
+				</div>
+				{% if messages %}
+					{% for result in messages %}
+						<span class="success_msg" style="margin-top:20px">{{result}}</span>
+					{% endfor %}
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</body>
+</html>

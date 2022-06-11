@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static "website/sheets/bs1.css" %}">
+</head>
+<body>
+
+<a href="https://front.codes/" class="logo" target="_blank">
+	<img src="https://assets.codepen.io/1462889/fcy.png" alt="">
+</a>
+<center>
+<div class="section">
+<div class="container">
+<div class="row full-height justify-content-center">
+	<a href={% url 'home' %}>
+		<button class="btn mt-4">HOME</button></a>
+	<div class="col-12 text-center align-self-center py-5">
+	<div class="section pb-5 pt-5 pt-sm-2 text-center">
+		<h6 class="mb-0 pb-3"><span>Log In </span><span>Sign Up</span></h6>
+		<input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
+		<label for="reg-log"></label>
+		<div class="card-3d-wrap mx-auto">
+			<div class="card-3d-wrapper">
+				<div class="card-front">
+					<div class="center-wrap">
+					<div class="section2 text-center">
+						<h4 class="mb-4 pb-3">SIGN IN</h4>
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input type="text" name="y_name" class="form-style" placeholder="Your Username">
+                                <i class="input-icon uil uil-at"></i>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="y_pass" class="form-style" placeholder="Your Password" autocomplete="off">
+                                <i class="input-icon uil uil-lock-alt"></i>
+                            </div><br>
+                            <input type="submit" name="signinbtn" class="btn mt-4" value="LOGIN"><br>
+                            <br>{% if messages %}
+                            {% for msg in messages %}
+                            <msg class="mb-0 pb-3">{{msg}}</msg>
+                            {% endfor %}
+                            {% endif %}
+                        </form>
+				    </div>
+			      	</div>
+			    </div>
+				<div class="card-back">
+					<div class="center-wrap">
+						<div class="section3 text-center">
+						<h4 class="mb-4 pb-3">SIGN UP</h4>
+                        <form method="POST">
+                            {% csrf_token %}
+							<div class="form-group">
+								<input type="text" name="namebox" class="form-style" placeholder="Enter Full Name">
+								<i class="input-icon uil uil-user"></i>
+							</div>	
+							<div class="form-group mt-2">
+								<input type="email" name="emailbox" class="form-style" placeholder="Enter Email">
+								<i class="input-icon uil uil-at"></i>
+							</div>
+                            <div class="form-group mt-2">
+								<input type="text" name="unamebox" class="form-style" placeholder="Enter a Username">
+								<i class="input-icon uil uil-user"></i>
+							</div>		
+							<div class="form-group mt-2">
+								<input type="password" name="passbox" class="form-style" placeholder="Enter a Password" autocomplete="off">
+								<i class="input-icon uil uil-lock-alt"></i>
+							</div>
+                            <div class="form-group mt-2">
+								<input type="password" name="re_passbox" class="form-style" placeholder="Re-enter Password" autocomplete="off">
+								<i class="input-icon uil uil-lock-alt"></i>
+							</div><br>
+                            <input type="submit" name="signupbtn" class="btn mt-4" value="REGISTER"><br>
+                            <br>{% if messages %}
+                            {% for msg in messages %}
+                            <msg class="mb-0 pb-3">{{msg}}</msg>
+                            {% endfor %}
+                            {% endif %}
+                        </form>
+				      	</div>
+					</div>
+			    </div>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+</div>
+</div>
+</center>
+</body>
+</html>
